@@ -26,10 +26,11 @@ class ProductResource extends JsonResource
             
             'discount'      => $this->discount,
             
-                            //Will return Total Price after discount
+                               //Will return Total Price after discount
             'totalPrice'    => round(( 1 - ($this->discount / 100)) * $this->price , 2),
             
             'href'          => [
+                
                                //Total rating b3d darb 3add al reviews * magmo3 al Stars
                 'rating'    => $this->reviews->count() > 0 ?
                                round($this->reviews->sum('star') / $this->reviews->count(),2)
